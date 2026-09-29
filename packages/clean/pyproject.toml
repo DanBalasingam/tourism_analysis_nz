@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clean"
+version = "1.0.0"
+description = "Data cleaning and validation helpers for the NZ tourism analysis project"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Daniel Balasingam" }]
+dependencies = [
+    "numpy==2.5.3",
+    "openpyxl>=3.1",
+    "pandas==3.0.6",
+    "python-dateutil==2.9.0.post0",
+    "six==1.17.0",
+]
+
+[project.optional-dependencies]
+# Writers used by the MRTE cleaners when exporting. pyarrow, not fastparquet:
+# fastparquet cannot serialise the period[M] "month" column.
+export = [
+    "pyarrow>=21",
+    "xlsxwriter>=3.2",
+]
+
+[project.scripts]
+clean-helpers = "clean.helpers:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

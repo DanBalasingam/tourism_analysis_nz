@@ -11,11 +11,12 @@ import numpy as np
 
 NULL_TOKENS: list[str] = ["", "-", "n/a", "na", "null", "unknown", "?"]
 
-def load(path: str, sheet: str, id_cols) -> pd.DataFrame:
-    """Reads xlsx sheet and returns a pandas data frame."""
-    df = pd.read_excel(path, sheet_name=sheet, dtype={c: str for c in id_cols})
+def load(path: str, sheet: str) -> pd.DataFrame:
+    """Reads xlsx sheet and returns a pandas data frame.
+        Cleans whitespace and converts to snake_case"""
+    df = pd.read_excel(path, sheet_name=sheet)
     df.columns = df.columns.str.strip().str.lower().str.replace(r"\W+", "_", regex=True)
-    return df.dropna(how="all")
+    return df
 
 
 def normalise_text(df: pd.DataFrame) -> pd.DataFrame:
