@@ -1,6 +1,6 @@
 # The shared cleaning library, installed in editable mode from this repo.
 # This path is relative to the working directory, so run pip from mrte/:
-#   ./.venv/bin/python -m pip install -r requirements.txt
+#   ./venv/bin/python -m pip install -r requirements.txt
 -e ../packages/clean
 
 # Runtime deps (kept in sync with packages/clean/pyproject.toml).

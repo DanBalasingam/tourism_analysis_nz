@@ -6,5 +6,5 @@ Reusable data cleaning and validation helpers (`load`, `normalise_text`,
 Install into a virtualenv in editable mode:
 
 ```
-path/to/.venv/bin/python -m pip install -e path/to/clean
+path/to/venv/bin/python -m pip install -e path/to/clean
 ```
