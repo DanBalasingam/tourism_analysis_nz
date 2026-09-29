@@ -1,10 +1,9 @@
-from operator import index
-from os import path
-
 import pandas as pd
 from pathlib import Path
 
-# Cleans the summary.xlsx file
+# Cleans the Summary.xlsx file
+
+_DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 COLUMNS = [
     "month_dom_spend", "month_intl_spend",
@@ -35,12 +34,12 @@ def load_mtre_summary(path: str) -> pd.DataFrame:
 
 
 def export_csv(df: pd.DataFrame, source: str | Path) -> Path:
-    out = Path(source).with_suffix(".csv")
+    out = _DATA_DIR / "cleaned" / Path(source).with_suffix(".csv").name
     df.to_csv(out, index=True, float_format="%.4f", encoding="utf-8")
     return out
 
 
 if __name__ == "__main__":
-    src = "../Summary.xlsx"
+    src = _DATA_DIR / "raw" / "Summary.xlsx"
     df = load_mtre_summary(src)
     export_csv(df, src)
