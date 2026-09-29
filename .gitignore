@@ -3,5 +3,6 @@ __pycache__
 *.egg-info
 .DS_Store
 
-# Cleaner outputs
-mrte/data/cleaned/
+# Cleaner outputs, but keep the directory itself
+mrte/data/cleaned/*
+!mrte/data/cleaned/.gitkeep
