@@ -1,0 +1,15 @@
+# The shared cleaning library, installed in editable mode from this repo.
+# This path is relative to the working directory, so run pip from mrte/:
+#   ./.venv/bin/python -m pip install -r requirements.txt
+-e ../packages/clean
+
+# Runtime deps (kept in sync with packages/clean/pyproject.toml).
+numpy==2.5.3
+pandas==3.0.6
+python-dateutil==2.9.0.post0
+six==1.17.0
+
+# Readers/writers used by the cleaners.
+openpyxl==3.1.5          # read the raw .xlsx
+pyarrow==25.0.1          # --parquet output
+xlsxwriter==3.2.9        # --xlsx output
