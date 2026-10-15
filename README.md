@@ -46,6 +46,8 @@ the leading dot avoids the flag entirely. If you do hit it, clear it with:
 chflags nohidden venv/lib/python3.14/site-packages/*.pth
 ```
 
+This was reported to Apple as a bug report - 2026.
+
 ## Running the cleaners
 
 From `mrte/` (the scripts resolve `data/` relative to their own location, so the
